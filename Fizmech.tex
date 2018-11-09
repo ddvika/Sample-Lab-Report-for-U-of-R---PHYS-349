@@ -1,23 +1,32 @@
-%++++++++++++++++++++++++++++++++++++++++
-% Don't modify this section unless you know what you're doing!
-\documentclass[letterpaper,12pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[english,russian]{babel}
-\usepackage{tabularx} % extra features for tabular environment
-\usepackage{amsmath}  % improve math presentation
-\usepackage{graphicx} % takes care of graphic including machinery
-\usepackage[margin=1in,letterpaper]{geometry} % decreases margins
-\usepackage{cite} % takes care of citations
-\usepackage[final]{hyperref} % adds hyper links inside the generated pdf file
-\hypersetup{
-	colorlinks=true,       % false: boxed links; true: colored links
-	linkcolor=blue,        % color of internal links
-	citecolor=blue,        % color of links to bibliography
-	filecolor=magenta,     % color of file links
-	urlcolor=blue         
-}
-%++++++++++++++++++++++++++++++++++++++++
+% "Станет проще"
 
+\documentclass[letterpaper,12pt]{article} % тип документа
+
+% report, book
+
+% Рисунки
+\usepackage{graphicx}
+\usepackage{wrapfig}
+
+\usepackage{hyperref}
+\usepackage[rgb]{xcolor}
+\hypersetup{				% Гиперссылки
+    colorlinks=true,       	% false: ссылки в рамках
+	urlcolor=blue          % на URL
+}
+
+%  Русский язык
+
+\usepackage[T2A]{fontenc}			% кодировка
+\usepackage[utf8]{inputenc}			% кодировка исходного текста
+\usepackage[english,russian]{babel}	% локализация и переносы
+
+
+% Математика
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} 
+
+
+\usepackage{wasysym}
 
 \begin{document}
 
@@ -28,7 +37,7 @@
 
 \begin{abstract}
 Данная работа посвящена изучению и расчету ионизационного равновесия в газе. Для расчета используются методы статистической физики, в частности формула Саха (Saha, 1920). 
-Рассмотрена равновесная (термическая) ионизация атома Ne [He, Ar, любого другого газа] в приближении идеального газа. 
+Рассмотрена равновесная (термическая) ионизация атомов Ne и He в приближении идеального газа. 
 \end{abstract}
 
 
@@ -36,10 +45,10 @@
 
 Представлено теоретическое и математическое обоснование расчетных формул и принятых предположений. 
 Расчет проводится для температур от 3 000 до 30 000 градусов Кельвина, в диапазоне давлений от 0,1 до 1 атмосферы. 
-В качестве результата представлена зависимость степени ионизации от температуры и давления .
+В качестве результата представлена зависимость степени ионизации от температуры и давления.
 
 \section{Теория}
-\\* Реакция ионизации:
+Реакция ионизации:
 \begin{equation} \label{eq:aperp} % the label is used to reference the equation
 A\rightleftharpoons A^{+}+e^{-}
 \end{equation}
@@ -208,8 +217,22 @@ n_e=\frac{P}{kT} \frac{\alpha}{\alpha + 1}
 Условие идеальности:\\*
 Г - Параметр неидеальности
 \begin{equation}
-\Gamma = \frac{e^2}{k_b r_D}< < 1
+\Gamma = \frac{e^2}{k_b r_D T}< < 1
 \end{equation}
+
+\section{Расчетные данные для Ne}
+Потенциал ионизации атома: I = 21.5645 эВ
+\\* Электронная конфигурация атома в основном состоянии: 
+\\* Статвес основного состояния атома: 1
+\\* Электронная конфигурация иона 
+\\* Статвес основного состояния иона: 1
+\\* Диапазон температур: 3000 - 30 000 K
+\\* Диапазон давлений: 0,1 - 1 атм
+\\* Константа Больцмана в СИ: $1.38*10^{-23}$ Дж/К
+\\* Константа Больцмана в СГСЭ: $1.4*10^{-16}$ эрг/К
+\\* Масса электрона: $9.10938356^10^{-31}$ кг
+\\* Постоянная планка: $6.582*10^{-16}$ эВ/с
+
 \section{Расчетные данные для He}
 Потенциал ионизации атома: I = 24.5874 
 \\* Электронная конфигурация атома в основном состоянии: 
@@ -224,6 +247,31 @@ n_e=\frac{P}{kT} \frac{\alpha}{\alpha + 1}
 \\* Постоянная планка: $6.582*10^{-16}$ эВ/с
 
 \section{Вывод}
-Получено, что параметр неидеальности много меньше 1, в связи с этим в расчетах применялись формулы без учета параметра неидеальности. Также численный расчет подтвердил, что в среднем степень ионизации равна 0,5 при тепературе равной одной десятой потенциала ионизации.
+При численной оценке получаенно, что параметр неидеальности много меньше 1. Поэтому в расчетах применялись формулы без учета параметра неидеальности. Также численный расчет подтвердил, что в среднем степень ионизации равна 0,5 при тепературе равной одной десятой потенциала ионизации.
+
+%++++++++++++++++++++++++++++++++++++++++
+% References section will be created automatically 
+% with inclusion of "thebibliography" environment
+% as it shown below. See text starting with line
+% \begin{thebibliography}{99}
+% Note: with this approach it is YOUR responsibility to put them in order
+% of appearance.
+
+\begin{thebibliography}{99}
+
+\bibitem{melissinos}
+A.~C. Melissinos and J. Napolitano, \textit{Experiments in Modern Physics},
+(Academic Press, New York, 2003).
+
+\bibitem{Cyr}
+N.\ Cyr, M.\ T$\hat{e}$tu, and M.\ Breton,
+% "All-optical microwave frequency standard: a proposal,"
+IEEE Trans.\ Instrum.\ Meas.\ \textbf{42}, 640 (1993).
+
+\bibitem{Wiki} \emph{Expected value},  available at
+\texttt{http://en.wikipedia.org/wiki/Expected\_value}.
+
+\end{thebibliography}
+
 
 \end{document}
